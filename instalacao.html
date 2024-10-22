@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação do Git - Guia Interativo de Git e GitHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Guia Interativo de Git e GitHub</h1>
+        <p>Aprenda a instalar, configurar e usar o Git e o GitHub para seus projetos Python!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="instalacao.html">Instalação do Git</a></li>
+            <li><a href="configuracao.html">Configuração do Git</a></li>
+            <li><a href="github.html">Criando uma conta no GitHub</a></li>
+            <li><a href="comandos.html">Comandos Básicos</a></li>
+            <li><a href="doacao.html">Apoie o Projeto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Instalação do Git</h2>
+            <p>Siga as instruções abaixo para instalar o Git no seu sistema operacional:</p>
+
+            <h3>Windows</h3>
+            <ol>
+                <li>Acesse o site oficial do Git: <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a></li>
+                <li>Baixe o instalador e execute-o.</li>
+                <li>Siga as instruções do instalador, mantendo as opções padrão.</li>
+                <li>Após a instalação, abra o Prompt de Comando e digite <code>git --version</code> para verificar se a instalação foi bem-sucedida.</li>
+            </ol>
+
+            <h3>macOS</h3>
+            <ol>
+                <li>Abra o Terminal.</li>
+                <li>Instale o Homebrew (se ainda não tiver) com o seguinte comando:
+                    <div class="command">
+                        <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>
+                        <button onclick="copyToClipboard('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')">Copiar</button>
+                    </div>
+                </li>
+                <li>Após a instalação do Homebrew, instale o Git com o comando:
+                    <div class="command">
+                        <code>brew install git</code>
+                        <button onclick="copyToClipboard('brew install git')">Copiar</button>
+                    </div>
+                </li>
+                <li>Verifique a instalação digitando <code>git --version</code> no Terminal.</li>
+            </ol>
+
+            <h3>Linux (Ubuntu/Debian)</h3>
+            <ol>
+                <li>Abra o Terminal.</li>
+                <li>Atualize os pacotes do sistema:
+                    <div class="command">
+                        <code>sudo apt update</code>
+                        <button onclick="copyToClipboard('sudo apt update')">Copiar</button>
+                    </div>
+                </li>
+                <li>Instale o Git:
+                    <div class="command">
+                        <code>sudo apt install git</code>
+                        <button onclick="copyToClipboard('sudo apt install git')">Copiar</button>
+                    </div>
+                </li>
+                <li>Verifique a instalação digitando <code>git --version</code> no Terminal.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

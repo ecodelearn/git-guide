@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando uma conta no GitHub - Guia Interativo de Git e GitHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Guia Interativo de Git e GitHub</h1>
+        <p>Aprenda a instalar, configurar e usar o Git e o GitHub para seus projetos Python!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="instalacao.html">Instalação do Git</a></li>
+            <li><a href="configuracao.html">Configuração do Git</a></li>
+            <li><a href="github.html">Criando uma conta no GitHub</a></li>
+            <li><a href="comandos.html">Comandos Básicos</a></li>
+            <li><a href="doacao.html">Apoie o Projeto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Criando uma conta no GitHub</h2>
+            <p>O GitHub é uma plataforma de hospedagem de código-fonte que usa o Git para controle de versão. Siga os passos abaixo para criar sua conta:</p>
+
+            <ol>
+                <li>Acesse o site do GitHub: <a href="https://github.com" target="_blank">https://github.com</a></li>
+                <li>Clique no botão "Sign up" (Inscrever-se) no canto superior direito da página.</li>
+                <li>Preencha o formulário de inscrição:
+                    <ul>
+                        <li>Digite seu endereço de e-mail</li>
+                        <li>Crie uma senha</li>
+                        <li>Escolha um nome de usuário</li>
+                    </ul>
+                </li>
+                <li>Resolva o desafio de verificação para provar que você não é um robô.</li>
+                <li>Clique em "Create account" (Criar conta).</li>
+                <li>Verifique seu e-mail e clique no link de verificação enviado pelo GitHub.</li>
+                <li>Após a verificação, você será redirecionado para configurar seu perfil.</li>
+            </ol>
+
+            <h3>Configurando seu perfil do GitHub</h3>
+            <p>Após criar sua conta, é importante configurar seu perfil:</p>
+
+            <ol>
+                <li>Adicione uma foto de perfil clicando no ícone de avatar no canto superior direito e selecionando "Your profile" (Seu perfil).</li>
+                <li>Clique em "Edit profile" (Editar perfil) para adicionar informações como sua bio, localização, e site pessoal.</li>
+                <li>Considere criar um README.md personalizado para seu perfil, que aparecerá na sua página principal do GitHub.</li>
+            </ol>
+
+            <h3>Conectando o Git local ao GitHub</h3>
+            <p>Para conectar seu Git local ao GitHub, você precisará configurar a autenticação. O método recomendado é usar chaves SSH. Siga as instruções abaixo de acordo com seu sistema operacional:</p>
+
+            <h4>Windows</h4>
+            <ol>
+                <li>Instale o Git Bash (se ainda não tiver): <a href="https://git-scm.com/download/win" target="_blank">https://git-scm.com/download/win</a></li>
+                <li>Abra o Git Bash</li>
+                <li>Gere uma chave SSH com o comando:
+                    <div class="command">
+                        <code>ssh-keygen -t ed25519 -C "seu.email@example.com"</code>
+                        <button onclick="copyToClipboard('ssh-keygen -t ed25519 -C "seu.email@example.com"')">Copiar</button>
+                    </div>
+                </li>
+                <li>Pressione Enter para aceitar o local padrão do arquivo</li>
+                <li>Digite uma senha segura quando solicitado (opcional, mas recomendado)</li>
+            </ol>
+
+            <h4>macOS</h4>
+            <ol>
+                <li>Abra o Terminal</li>
+                <li>Verifique se o OpenSSH está instalado com o comando:
+                    <div class="command">
+                        <code>ssh -V</code>
+                        <button onclick="copyToClipboard('ssh -V')">Copiar</button>
+                    </div>
+                </li>
+                <li>Se não estiver instalado, você pode instalá-lo com o Homebrew:
+                    <div class="command">
+                        <code>brew install openssh</code>
+                        <button onclick="copyToClipboard('brew install openssh')">Copiar</button>
+                    </div>
+                </li>
+                <li>Gere uma chave SSH com o comando:
+                    <div class="command">
+                        <code>ssh-keygen -t ed25519 -C "seu.email@example.com"</code>
+                        <button onclick="copyToClipboard('ssh-keygen -t ed25519 -C "seu.email@example.com"')">Copiar</button>
+                    </div>
+                </li>
+                <li>Pressione Enter para aceitar o local padrão do arquivo</li>
+                <li>Digite uma senha segura quando solicitado (opcional, mas recomendado)</li>
+            </ol>
+
+            <h4>Linux</h4>
+            <ol>
+                <li>Abra o Terminal</li>
+                <li>Na maioria das distribuições Linux, o OpenSSH já vem instalado. Você pode verificar com:
+                    <div class="command">
+                        <code>ssh -V</code>
+                        <button onclick="copyToClipboard('ssh -V')">Copiar</button>
+                    </div>
+                </li>
+                <li>Se não estiver instalado, você pode instalá-lo com o gerenciador de pacotes da sua distribuição. Por exemplo, no Ubuntu:
+                    <div class="command">
+                        <code>sudo apt-get install openssh-client</code>
+                        <button onclick="copyToClipboard('sudo apt-get install openssh-client')">Copiar</button>
+                    </div>
+                </li>
+                <li>Gere uma chave SSH com o comando:
+                    <div class="command">
+                        <code>ssh-keygen -t ed25519 -C "seu.email@example.com"</code>
+                        <button onclick="copyToClipboard('ssh-keygen -t ed25519 -C "seu.email@example.com"')">Copiar</button>
+                    </div>
+                </li>
+                <li>Pressione Enter para aceitar o local padrão do arquivo</li>
+                <li>Digite uma senha segura quando solicitado (opcional, mas recomendado)</li>
+            </ol>
+
+            <h4>Adicionando a chave SSH ao GitHub</h4>
+            <ol>
+                <li>Copie o conteúdo da sua chave pública:
+                    <ul>
+                        <li>No Windows (Git Bash): <code>cat ~/.ssh/id_ed25519.pub | clip</code></li>
+                        <li>No macOS: <code>pbcopy < ~/.ssh/id_ed25519.pub</code></li>
+                        <li>No Linux: <code>xclip -sel clip < ~/.ssh/id_ed25519.pub</code> (você pode precisar instalar xclip)</li>
+                    </ul>
+                </li>
+                <li>No GitHub, vá para Settings > SSH and GPG keys > New SSH key</li>
+                <li>Cole a chave no campo "Key" e dê um título descritivo</li>
+                <li>Clique em "Add SSH key"</li>
+            </ol>
+
+            <h4>Testando a conexão</h4>
+            <p>Para testar se a conexão SSH com o GitHub está funcionando, use o comando:</p>
+            <div class="command">
+                <code>ssh -T git@github.com</code>
+                <button onclick="copyToClipboard('ssh -T git@github.com')">Copiar</button>
+            </div>
+
+            <p>Se você ver uma mensagem de boas-vindas com seu nome de usuário do GitHub, a configuração foi bem-sucedida!</p>
+
+            <p>Agora você está pronto para começar a usar o GitHub com seus projetos Python!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

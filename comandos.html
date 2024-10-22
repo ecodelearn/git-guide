@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos Básicos do Git - Guia Interativo de Git e GitHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Guia Interativo de Git e GitHub</h1>
+        <p>Aprenda a instalar, configurar e usar o Git e o GitHub para seus projetos Python!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="instalacao.html">Instalação do Git</a></li>
+            <li><a href="configuracao.html">Configuração do Git</a></li>
+            <li><a href="github.html">Criando uma conta no GitHub</a></li>
+            <li><a href="comandos.html">Comandos Básicos</a></li>
+            <li><a href="doacao.html">Apoie o Projeto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Comandos Básicos do Git</h2>
+            <p>Aqui estão alguns dos comandos mais comuns que você usará ao trabalhar com Git:</p>
+
+            <h3>Inicializando um repositório</h3>
+            <div class="command">
+                <code>git init</code>
+                <button onclick="copyToClipboard('git init')">Copiar</button>
+            </div>
+            <p>Este comando cria um novo repositório Git no diretório atual.</p>
+
+            <h3>Clonando um repositório existente</h3>
+            <div class="command">
+                <code>git clone https://github.com/usuario/repositorio.git</code>
+                <button onclick="copyToClipboard('git clone https://github.com/usuario/repositorio.git')">Copiar</button>
+            </div>
+            <p>Este comando cria uma cópia local de um repositório remoto.</p>
+
+            <h3>Verificando o status do repositório</h3>
+            <div class="command">
+                <code>git status</code>
+                <button onclick="copyToClipboard('git status')">Copiar</button>
+            </div>
+            <p>Mostra o estado atual do seu repositório, incluindo arquivos modificados e não rastreados.</p>
+
+            <h3>Adicionando arquivos ao staging area</h3>
+            <div class="command">
+                <code>git add nome_do_arquivo</code>
+                <button onclick="copyToClipboard('git add nome_do_arquivo')">Copiar</button>
+            </div>
+            <p>Adiciona um arquivo específico ao staging area.</p>
+
+            <div class="command">
+                <code>git add .</code>
+                <button onclick="copyToClipboard('git add .')">Copiar</button>
+            </div>
+            <p>Adiciona todos os arquivos modificados ao staging area.</p>
+
+            <h3>Criando um commit</h3>
+            <div class="command">
+                <code>git commit -m "Mensagem do commit"</code>
+                <button onclick="copyToClipboard('git commit -m "Mensagem do commit"')">Copiar</button>
+            </div>
+            <p>Cria um novo commit com os arquivos no staging area.</p>
+
+            <h3>Enviando alterações para o repositório remoto</h3>
+            <div class="command">
+                <code>git push origin main</code>
+                <button onclick="copyToClipboard('git push origin main')">Copiar</button>
+            </div>
+            <p>Envia os commits locais para o branch 'main' do repositório remoto.</p>
+
+            <h3>Atualizando o repositório local</h3>
+            <div class="command">
+                <code>git pull origin main</code>
+                <button onclick="copyToClipboard('git pull origin main')">Copiar</button>
+            </div>
+            <p>Atualiza seu repositório local com as alterações do repositório remoto.</p>
+
+            <h3>Criando e mudando de branch</h3>
+            <div class="command">
+                <code>git branch nome_do_branch</code>
+                <button onclick="copyToClipboard('git branch nome_do_branch')">Copiar</button>
+            </div>
+            <p>Cria um novo branch.</p>
+
+            <div class="command">
+                <code>git checkout nome_do_branch</code>
+                <button onclick="copyToClipboard('git checkout nome_do_branch')">Copiar</button>
+            </div>
+            <p>Muda para o branch especificado.</p>
+
+            <h3>Mesclando branches</h3>
+            <div class="command">
+                <code>git merge nome_do_branch</code>
+                <button onclick="copyToClipboard('git merge nome_do_branch')">Copiar</button>
+            </div>
+            <p>Mescla o branch especificado com o branch atual.</p>
+
+            <p>Estes são apenas alguns dos comandos básicos do Git. À medida que você se familiariza com eles, poderá explorar comandos mais avançados para gerenciar seu código de forma mais eficiente.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

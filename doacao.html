@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoie o Projeto - Guia Interativo de Git e GitHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Guia Interativo de Git e GitHub</h1>
+        <p>Aprenda a instalar, configurar e usar o Git e o GitHub para seus projetos Python!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="instalacao.html">Instalação do Git</a></li>
+            <li><a href="configuracao.html">Configuração do Git</a></li>
+            <li><a href="github.html">Criando uma conta no GitHub</a></li>
+            <li><a href="comandos.html">Comandos Básicos</a></li>
+            <li><a href="doacao.html">Apoie o Projeto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Apoie o Projeto</h2>
+            <p>Se você achou este guia útil e gostaria de apoiar o desenvolvimento de mais projetos como este, considere fazer uma doação. Sua contribuição nos ajudará a manter e melhorar este recurso, além de criar novos conteúdos educacionais.</p>
+
+            <h3>Opções de Doação</h3>
+            <div class="donation-options">
+                <div class="donation-option">
+                    <h4>Stripe</h4>
+                    <p>Para doações internacionais, você pode usar o Stripe:</p>
+                    <button id="stripe-donate">Doar via Stripe</button>
+                </div>
+                <div class="donation-option">
+                    <h4>PIX</h4>
+                    <p>Para doações no Brasil, você pode usar o PIX:</p>
+                    <p>Chave PIX: exemplo@email.com</p>
+                    <img src="qr-code-pix.png" alt="QR Code PIX" id="pix-qr-code">
+                </div>
+            </div>
+
+            <h3>Por que doar?</h3>
+            <ul>
+                <li>Ajuda a manter este guia atualizado e gratuito</li>
+                <li>Permite o desenvolvimento de novos recursos e conteúdos</li>
+                <li>Apoia a criação de mais materiais educacionais sobre programação e tecnologia</li>
+                <li>Contribui para a comunidade de desenvolvedores Python</li>
+            </ul>
+
+            <p>Agradecemos imensamente qualquer contribuição, não importa o valor. Seu apoio faz a diferença!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Aqui você adicionaria a lógica para integração com o Stripe
+        // Este é apenas um exemplo e não funcionará sem a configuração adequada
+        var stripe = Stripe('sua_chave_publica_do_stripe');
+        var button = document.getElementById('stripe-donate');
+        button.addEventListener('click', function() {
+            stripe.redirectToCheckout({
+                lineItems: [{price: 'price_1234', quantity: 1}],
+                mode: 'payment',
+                successUrl: 'https://seusite.com/obrigado',
+                cancelUrl: 'https://seusite.com/doacao',
+            });
+        });
+    </script>
+</body>
+</html>

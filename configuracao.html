@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração do Git - Guia Interativo de Git e GitHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Guia Interativo de Git e GitHub</h1>
+        <p>Aprenda a instalar, configurar e usar o Git e o GitHub para seus projetos Python!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="instalacao.html">Instalação do Git</a></li>
+            <li><a href="configuracao.html">Configuração do Git</a></li>
+            <li><a href="github.html">Criando uma conta no GitHub</a></li>
+            <li><a href="comandos.html">Comandos Básicos</a></li>
+            <li><a href="doacao.html">Apoie o Projeto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Configuração Inicial do Git</h2>
+            <p>Após instalar o Git, é importante configurá-lo com suas informações pessoais. Siga os passos abaixo:</p>
+
+            <h3>Configurando seu nome de usuário</h3>
+            <p>Digite o seguinte comando no terminal ou prompt de comando, substituindo "Seu Nome" pelo seu nome real:</p>
+            <div class="command">
+                <code>git config --global user.name "Seu Nome"</code>
+                <button onclick="copyToClipboard('git config --global user.name "Seu Nome"')">Copiar</button>
+            </div>
+
+            <h3>Configurando seu e-mail</h3>
+            <p>Digite o seguinte comando, substituindo "seu.email@example.com" pelo seu e-mail real:</p>
+            <div class="command">
+                <code>git config --global user.email "seu.email@example.com"</code>
+                <button onclick="copyToClipboard('git config --global user.email "seu.email@example.com"')">Copiar</button>
+            </div>
+
+            <h3>Verificando suas configurações</h3>
+            <p>Para verificar se as configurações foram aplicadas corretamente, use o seguinte comando:</p>
+            <div class="command">
+                <code>git config --list</code>
+                <button onclick="copyToClipboard('git config --list')">Copiar</button>
+            </div>
+
+            <p>Isso exibirá todas as configurações do Git, incluindo as que você acabou de definir.</p>
+
+            <h3>Configurando o editor padrão</h3>
+            <p>Se desejar, você pode configurar o editor de texto padrão que o Git usará. Por exemplo, para configurar o Visual Studio Code como editor padrão, use:</p>
+            <div class="command">
+                <code>git config --global core.editor "code --wait"</code>
+                <button onclick="copyToClipboard('git config --global core.editor "code --wait"')">Copiar</button>
+            </div>
+
+            <p>Substitua "code" pelo comando do seu editor preferido, se for diferente.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

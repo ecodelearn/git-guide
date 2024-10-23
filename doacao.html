@@ -31,15 +31,15 @@
             <h3>Opções de Doação</h3>
             <div class="donation-options">
                 <div class="donation-option">
+                    <h4>PIX</h4>
+                    <p>Para doações no Brasil, você pode usar o PIX:</p>
+                    <p>Clique no link abaixo para acessar o QR code do PIX:</p>
+                    <a href="https://nubank.com.br/cobrar/1pmlu/6717e766-69dd-4334-bd4a-982c7ed50b69" target="_blank">Acessar QR Code PIX</a>
+                </div>
+                <div class="donation-option">
                     <h4>Stripe</h4>
                     <p>Para doações internacionais, você pode usar o Stripe:</p>
                     <button id="stripe-donate">Doar via Stripe</button>
-                </div>
-                <div class="donation-option">
-                    <h4>PIX</h4>
-                    <p>Para doações no Brasil, você pode usar o PIX:</p>
-                    <p>Chave PIX: eec457ca-e597-4aa4-9a83-94971a9f57bb</p>
-                    <img src="qr-code-pix.png" alt="QR Code PIX" id="pix-qr-code">
                 </div>
             </div>
 
@@ -56,23 +56,16 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
+        <p>&copy; 2024 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
     </footer>
 
     <script src="script.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        // Aqui você adicionaria a lógica para integração com o Stripe
-        // Este é apenas um exemplo e não funcionará sem a configuração adequada
-        var stripe = Stripe('sua_chave_publica_do_stripe');
+        // Redirecionamento para o link do Stripe em uma nova aba
         var button = document.getElementById('stripe-donate');
         button.addEventListener('click', function() {
-            stripe.redirectToCheckout({
-                lineItems: [{price: 'price_1234', quantity: 1}],
-                mode: 'payment',
-                successUrl: 'https://seusite.com/obrigado',
-                cancelUrl: 'https://donate.stripe.com/9AQ9AA6C35jAgN26oo',
-            });
+            window.open('https://donate.stripe.com/9AQ9AA6C35jAgN26oo', '_blank');
         });
     </script>
 </body>

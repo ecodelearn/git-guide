@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalação do Git - Guia Interativo de Git e GitHub</title>
+    <title>Instalação do Visual Studio Code e Git - Guia Interativo de Git e GitHub</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .gif-container {
+            max-width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .gif-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .gif-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,7 +31,7 @@
     <nav>
         <ul>
             <li><a href="index.html">Início</a></li>
-            <li><a href="instalacao.html">Instalação do Git</a></li>
+            <li><a href="instalacao.html">Instalação do VS Code e Git</a></li>
             <li><a href="configuracao.html">Configuração do Git</a></li>
             <li><a href="github.html">Criando uma conta no GitHub</a></li>
             <li><a href="comandos.html">Comandos Básicos</a></li>
@@ -25,57 +41,93 @@
 
     <main>
         <section>
+            <h2>Instalação do Visual Studio Code</h2>
+            <p>Antes de instalar o Git, vamos instalar o Visual Studio Code, um poderoso editor de código que se integra bem com o Git. Siga as instruções abaixo para o seu sistema operacional:</p>
+
+            <h3>Windows, macOS e Linux</h3>
+            <ol>
+                <li>Acesse o site oficial do Visual Studio Code: <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a></li>
+                <li>Clique no botão de download para o seu sistema operacional.</li>
+                <li>Execute o instalador baixado e siga as instruções na tela.</li>
+                <li>Após a instalação, abra o Visual Studio Code para verificar se foi instalado corretamente.</li>
+            </ol>
+
+            <p>O Visual Studio Code oferece excelente integração com o Git, incluindo:</p>
+            <ul>
+                <li>Visualização de alterações em arquivos</li>
+                <li>Staging e commit de alterações diretamente da interface</li>
+                <li>Visualização de histórico de commits</li>
+                <li>Resolução de conflitos de merge</li>
+                <li>Integração com GitHub e outros serviços de hospedagem de repositórios</li>
+            </ul>
+        </section>
+
+        <section>
             <h2>Instalação do Git</h2>
-            <p>Siga as instruções abaixo para instalar o Git no seu sistema operacional:</p>
+            <p>Agora que temos o Visual Studio Code instalado, vamos instalar o Git. Siga as instruções abaixo para o seu sistema operacional:</p>
+
+            <div class="gif-container">
+                <img src="img/ezgif.com-optimize.gif" alt="Animação do processo de instalação do Git">
+                <p class="gif-caption">Demonstração do processo de instalação do Git</p>
+            </div>
 
             <h3>Windows</h3>
             <ol>
                 <li>Acesse o site oficial do Git: <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a></li>
                 <li>Baixe o instalador e execute-o.</li>
                 <li>Siga as instruções do instalador, mantendo as opções padrão.</li>
-                <li>Após a instalação, abra o Prompt de Comando e digite <code>git --version</code> para verificar se a instalação foi bem-sucedida.</li>
+                <li>Após a instalação, abra o Visual Studio Code, pressione Ctrl+` para abrir o terminal integrado e digite <code>git --version</code> para verificar se a instalação foi bem-sucedida.</li>
             </ol>
 
             <h3>macOS</h3>
             <ol>
-                <li>Abra o Terminal.</li>
+                <li>Abra o Terminal no Visual Studio Code (Ctrl+`).</li>
                 <li>Instale o Homebrew (se ainda não tiver) com o seguinte comando:
                     <div class="command">
                         <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>
-                        <button onclick="copyToClipboard('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')">Copiar</button>
+                        <button id="copy-homebrew" class="copy-btn" data-command="homebrew-install">Copiar</button>
                     </div>
                 </li>
                 <li>Após a instalação do Homebrew, instale o Git com o comando:
                     <div class="command">
                         <code>brew install git</code>
-                        <button onclick="copyToClipboard('brew install git')">Copiar</button>
+                        <button id="copy-brew-git" class="copy-btn" data-command="brew install git">Copiar</button>
                     </div>
                 </li>
-                <li>Verifique a instalação digitando <code>git --version</code> no Terminal.</li>
+                <li>Verifique a instalação digitando <code>git --version</code> no Terminal do VS Code.</li>
             </ol>
 
             <h3>Linux (Ubuntu/Debian)</h3>
             <ol>
-                <li>Abra o Terminal.</li>
+                <li>Abra o Terminal no Visual Studio Code (Ctrl+`).</li>
                 <li>Atualize os pacotes do sistema:
                     <div class="command">
                         <code>sudo apt update</code>
-                        <button onclick="copyToClipboard('sudo apt update')">Copiar</button>
+                        <button id="copy-apt-update" class="copy-btn" data-command="sudo apt update">Copiar</button>
                     </div>
                 </li>
                 <li>Instale o Git:
                     <div class="command">
                         <code>sudo apt install git</code>
-                        <button onclick="copyToClipboard('sudo apt install git')">Copiar</button>
+                        <button id="copy-apt-install-git" class="copy-btn" data-command="sudo apt install git">Copiar</button>
                     </div>
                 </li>
-                <li>Verifique a instalação digitando <code>git --version</code> no Terminal.</li>
+                <li>Verifique a instalação digitando <code>git --version</code> no Terminal do VS Code.</li>
             </ol>
+
+            <h3>Configurando o Git no Visual Studio Code</h3>
+            <p>Após instalar o Git, o Visual Studio Code detectará automaticamente a instalação. Para começar a usar o Git no VS Code:</p>
+            <ol>
+                <li>Abra um projeto ou pasta no VS Code.</li>
+                <li>Clique no ícone de controle de versão na barra lateral esquerda (ícone de ramificação).</li>
+                <li>Clique em "Initialize Repository" para iniciar um novo repositório Git, ou use os comandos Git diretamente no terminal integrado.</li>
+            </ol>
+            <p>Agora você está pronto para usar o Git com o Visual Studio Code!</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
+        <p>&copy; 2024 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
     </footer>
 
     <script src="script.js"></script>

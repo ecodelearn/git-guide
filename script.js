@@ -25,9 +25,11 @@ function copyToClipboard(text, button) {
 // Comando especial do Homebrew
 const homebrewCommand = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"';
 
-// Adicionar event listeners para os botões de cópia
+// Adicionar event listeners para os botões de cópia e inicializar o dropdown
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM carregado, adicionando event listeners...');
+    
+    // Configuração dos botões de cópia
     const copyButtons = document.querySelectorAll('.copy-btn');
     console.log('Número de botões encontrados:', copyButtons.length);
     copyButtons.forEach(button => {
@@ -54,6 +56,47 @@ document.addEventListener('DOMContentLoaded', () => {
             row.style.transform = 'scale(1)';
         });
     });
+
+    // Configuração do dropdown para dispositivos móveis
+    const dropdownToggle = document.querySelector('.dropdown > a');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdownContent.style.display = 
+                    dropdownContent.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+
+        // Manter o dropdown visível enquanto o mouse estiver sobre ele
+        const dropdown = dropdownToggle.parentElement;
+        let timeoutId; // Variável para armazenar o ID do timeout
+
+        dropdown.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId); // Limpar o timeout se o mouse entrar
+            dropdownContent.style.display = 'block';
+        });
+        dropdown.addEventListener('mouseleave', () => {
+            // Atrasar a ocultação do dropdown
+            timeoutId = setTimeout(() => {
+                dropdownContent.style.display = 'none';
+            }, 500); // Atraso de 500ms
+        });
+
+        // Adicionar evento para o conteúdo do dropdown
+        dropdownContent.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId); // Limpar o timeout se o mouse entrar
+            dropdownContent.style.display = 'block';
+        });
+        dropdownContent.addEventListener('mouseleave', () => {
+            // Atrasar a ocultação do dropdown
+            timeoutId = setTimeout(() => {
+                dropdownContent.style.display = 'none';
+            }, 500); // Atraso de 500ms
+        });
+    }
 });
 
 console.log('Script carregado');

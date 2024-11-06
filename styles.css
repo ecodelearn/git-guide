@@ -123,19 +123,36 @@ code {
     margin-bottom: 1rem;
 }
 
-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
+.botao-doacao {
+    background-color: #f1c40f; /* Cor do botão */
+    color: black; /* Cor do texto */
+    border: 2px solid #e1b12c; /* Borda do botão */
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 1rem;
-    transition: background-color 0.3s ease;
+    margin: 1rem auto; /* Centraliza o botão */
+    display: inline-block; /* Para não ocupar toda a largura */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    text-decoration: none; /* Remove o sublinhado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombras */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições */
 }
 
-button:hover {
-    background-color: #2980b9;
+.botao-doacao:hover {
+    background-color: #e1b12c; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+/* Centraliza o botão antes do footer */
+.center-button {
+    text-align: center;
+}
+
+/* Estilo para o texto abaixo do botão */
+.texto-doacao {
+    font-size: 0.9rem; /* Fonte menor */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 0.5rem; /* Espaçamento acima do texto */
 }
 
 /* Rodapé */
@@ -170,7 +187,7 @@ footer {
         align-items: flex-start;
     }
 
-    button {
+    .botao-doacao {
         margin-left: 0;
         margin-top: 0.5rem;
     }

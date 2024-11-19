@@ -1,35 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- O header será carregado dinamicamente -->
+    <script src="./components/loadHeader.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criando uma conta no GitHub e Configurando o GitHub CLI - Guia Interativo de Git e GitHub</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Guia Interativo de Git e GitHub</h1>
-        <p>Aprenda a instalar, configurar e usar o Git e o GitHub para seus projetos Python!</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li class="dropdown">
-                <a href="#">Git Guide</a>
-                <div class="dropdown-content">
-                    <a href="instalacao.html">Instalação do Git</a>
-                    <a href="configuracao.html">Configuração do Git</a>
-                    <a href="github.html">Criando uma conta no GitHub</a>
-                    <a href="comandos.html">Comandos Básicos</a>
-                </div>
-            </li>
-            <li><a href="python_iniciantes.html">Material para Iniciantes em Python</a></li>
-            <li><a href="mentor.html">Meu Mentor</a></li>
-            <li><a href="doacao.html">Apoie o Projeto</a></li>
-        </ul>
-    </nav>
-
     <main>
         <section>
             <h2>Criando uma conta no GitHub</h2>
@@ -72,7 +48,7 @@
                         <li>macOS: Use o Homebrew com o comando:
                             <div class="command">
                                 <code>brew install gh</code>
-                                <button class="copy-btn" onclick='copyToClipboard("brew install gh")'>Copiar</button>
+                                <button class="copy-btn" data-command="brew install gh">Copiar</button>
                             </div>
                         </li>
                         <li>Linux: Use o gerenciador de pacotes da sua distribuição (instruções detalhadas na página de download)</li>
@@ -86,7 +62,7 @@
                 <li>Execute o comando de autenticação:
                     <div class="command">
                         <code>gh auth login</code>
-                        <button class="copy-btn" onclick='copyToClipboard("gh auth login")'>Copiar</button>
+                        <button class="copy-btn" data-command="gh auth login">Copiar</button>
                     </div>
                 </li>
                 <li>Siga as instruções interativas:
@@ -106,7 +82,7 @@
             <p>Para verificar se o GitHub CLI está configurado corretamente, você pode executar:</p>
             <div class="command">
                 <code>gh auth status</code>
-                <button class="copy-btn" onclick='copyToClipboard("gh auth status")'>Copiar</button>
+                <button class="copy-btn" data-command="gh auth status">Copiar</button>
             </div>
 
             <p>Se você ver uma mensagem indicando que você está autenticado, a configuração foi bem-sucedida!</p>
@@ -119,7 +95,7 @@
                 <li>No terminal, execute o seguinte comando para criar um novo repositório:
                     <div class="command">
                         <code>gh repo create primeiro-repositorio --public</code>
-                        <button class="copy-btn" onclick='copyToClipboard("gh repo create primeiro-repositorio --public")'>Copiar</button>
+                        <button class="copy-btn" data-command="gh repo create primeiro-repositorio --public">Copiar</button>
                     </div>
                 </li>
                 <li>O GitHub CLI irá criar o repositório e mostrar a URL do mesmo.</li>
@@ -130,7 +106,7 @@
                 <li>Após criar o repositório, você pode cloná-lo diretamente usando o comando:
                     <div class="command">
                         <code>gh repo clone seu-usuario/primeiro-repositorio</code>
-                        <button class="copy-btn" onclick='copyToClipboard("gh repo clone seu-usuario/primeiro-repositorio")'>Copiar</button>
+                        <button class="copy-btn" data-command="gh repo clone seu-usuario/primeiro-repositorio">Copiar</button>
                     </div>
                     <p>Substitua "seu-usuario" pelo seu nome de usuário do GitHub.</p>
                 </li>
@@ -143,31 +119,31 @@
                 <li>Entre na pasta do repositório:
                     <div class="command">
                         <code>cd primeiro-repositorio</code>
-                        <button class="copy-btn" onclick='copyToClipboard("cd primeiro-repositorio")'>Copiar</button>
+                        <button class="copy-btn" data-command="cd primeiro-repositorio">Copiar</button>
                     </div>
                 </li>
                 <li>Crie um arquivo README.md:
                     <div class="command">
                         <code>echo "# Meu Primeiro Repositório" > README.md</code>
-                        <button class="copy-btn" onclick='copyToClipboard("echo \"# Meu Primeiro Repositório\" > README.md")'>Copiar</button>
+                        <button class="copy-btn" data-command='echo \"# Meu Primeiro Repositório\" > README.md'>Copiar</button>
                     </div>
                 </li>
                 <li>Adicione o arquivo ao Git:
                     <div class="command">
                         <code>git add README.md</code>
-                        <button class="copy-btn" onclick='copyToClipboard("git add README.md")'>Copiar</button>
+                        <button class="copy-btn" data-command="git add README.md">Copiar</button>
                     </div>
                 </li>
                 <li>Faça um commit:
                     <div class="command">
                         <code>git commit -m "Adiciona README"</code>
-                        <button class="copy-btn" onclick='copyToClipboard("git commit -m \"Adiciona README\"")'>Copiar</button>
+                        <button class="copy-btn" data-command="git commit -m \"Adiciona README\"">Copiar</button>
                     </div>
                 </li>
                 <li>Envie as mudanças para o GitHub:
                     <div class="command">
                         <code>git push origin main</code>
-                        <button class="copy-btn" onclick='copyToClipboard("git push origin main")'>Copiar</button>
+                        <button class="copy-btn" data-command="git push origin main">Copiar</button>
                     </div>
                 </li>
             </ol>
@@ -192,6 +168,6 @@
         <p>&copy; 2024 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

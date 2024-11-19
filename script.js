@@ -25,9 +25,9 @@ function copyToClipboard(text, button) {
 // Comando especial do Homebrew
 const homebrewCommand = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"';
 
-// Adicionar event listeners para os botões de cópia e inicializar o dropdown
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM carregado, adicionando event listeners...');
+// Função para inicializar os event listeners
+function initializeEventListeners() {
+    console.log('Inicializando event listeners...');
     
     // Configuração dos botões de cópia
     const copyButtons = document.querySelectorAll('.copy-btn');
@@ -72,31 +72,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Manter o dropdown visível enquanto o mouse estiver sobre ele
         const dropdown = dropdownToggle.parentElement;
-        let timeoutId; // Variável para armazenar o ID do timeout
+        let timeoutId;
 
         dropdown.addEventListener('mouseenter', () => {
-            clearTimeout(timeoutId); // Limpar o timeout se o mouse entrar
+            clearTimeout(timeoutId);
             dropdownContent.style.display = 'block';
         });
         dropdown.addEventListener('mouseleave', () => {
-            // Atrasar a ocultação do dropdown
             timeoutId = setTimeout(() => {
                 dropdownContent.style.display = 'none';
-            }, 500); // Atraso de 500ms
+            }, 500);
         });
 
-        // Adicionar evento para o conteúdo do dropdown
         dropdownContent.addEventListener('mouseenter', () => {
-            clearTimeout(timeoutId); // Limpar o timeout se o mouse entrar
+            clearTimeout(timeoutId);
             dropdownContent.style.display = 'block';
         });
         dropdownContent.addEventListener('mouseleave', () => {
-            // Atrasar a ocultação do dropdown
             timeoutId = setTimeout(() => {
                 dropdownContent.style.display = 'none';
-            }, 500); // Atraso de 500ms
+            }, 500);
         });
     }
+}
+
+// Inicializar após o carregamento do DOM e do header
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM carregado, aguardando carregamento do header...');
+    
+    // Verificar se o header já foi carregado
+    const checkHeader = setInterval(() => {
+        if (document.querySelector('header') && document.querySelector('nav')) {
+            clearInterval(checkHeader);
+            console.log('Header carregado, inicializando event listeners...');
+            initializeEventListeners();
+        }
+    }, 100); // Verificar a cada 100ms
+
+    // Timeout de segurança após 5 segundos
+    setTimeout(() => {
+        clearInterval(checkHeader);
+        console.log('Timeout de segurança atingido, inicializando event listeners...');
+        initializeEventListeners();
+    }, 5000);
 });
 
 console.log('Script carregado');

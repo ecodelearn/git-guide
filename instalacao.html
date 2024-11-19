@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- O header será carregado dinamicamente -->
+    <script src="./components/loadHeader.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalação do Visual Studio Code e Git - Guia Interativo de Git e GitHub</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         .gif-container {
             max-width: 100%;
@@ -23,29 +22,6 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Guia Interativo de Git e GitHub</h1>
-        <p>Aprenda a instalar, configurar e usar o Git e o GitHub para seus projetos Python!</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li class="dropdown">
-                <a href="#">Git Guide</a>
-                <div class="dropdown-content">
-                    <a href="instalacao.html">Instalação do Git</a>
-                    <a href="configuracao.html">Configuração do Git</a>
-                    <a href="github.html">Criando uma conta no GitHub</a>
-                    <a href="comandos.html">Comandos Básicos</a>
-                </div>
-            </li>
-            <li><a href="python_iniciantes.html">Material para Iniciantes em Python</a></li>
-            <li><a href="mentor.html">Meu Mentor</a></li>
-            <li><a href="doacao.html">Apoie o Projeto</a></li>
-        </ul>
-    </nav>
-
     <main>
         <section>
             <h2>Instalação do Visual Studio Code</h2>
@@ -92,13 +68,13 @@
                 <li>Instale o Homebrew (se ainda não tiver) com o seguinte comando:
                     <div class="command">
                         <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>
-                        <button id="copy-homebrew" class="copy-btn" data-command="homebrew-install">Copiar</button>
+                        <button class="copy-btn" data-command="homebrew-install">Copiar</button>
                     </div>
                 </li>
                 <li>Após a instalação do Homebrew, instale o Git com o comando:
                     <div class="command">
                         <code>brew install git</code>
-                        <button id="copy-brew-git" class="copy-btn" data-command="brew install git">Copiar</button>
+                        <button class="copy-btn" data-command="brew install git">Copiar</button>
                     </div>
                 </li>
                 <li>Verifique a instalação digitando <code>git --version</code> no Terminal do VS Code.</li>
@@ -110,13 +86,13 @@
                 <li>Atualize os pacotes do sistema:
                     <div class="command">
                         <code>sudo apt update</code>
-                        <button id="copy-apt-update" class="copy-btn" data-command="sudo apt update">Copiar</button>
+                        <button class="copy-btn" data-command="sudo apt update">Copiar</button>
                     </div>
                 </li>
                 <li>Instale o Git:
                     <div class="command">
                         <code>sudo apt install git</code>
-                        <button id="copy-apt-install-git" class="copy-btn" data-command="sudo apt install git">Copiar</button>
+                        <button class="copy-btn" data-command="sudo apt install git">Copiar</button>
                     </div>
                 </li>
                 <li>Verifique a instalação digitando <code>git --version</code> no Terminal do VS Code.</li>
@@ -149,6 +125,6 @@
         <p>&copy; 2024 Guia Interativo de Git e GitHub. Criado para ajudar estudantes de Python.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

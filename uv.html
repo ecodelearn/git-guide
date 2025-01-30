@@ -32,42 +32,35 @@
             <pre><code>brew install uv</code></pre>
 
             <h3>Comandos Básicos</h3>
-            <p>Aqui estão alguns comandos básicos para começar a usar o UV:</p>
-
-            <h4>Criar um ambiente virtual</h4>
-            <pre><code>uv venv</code></pre>
-
-            <h4>Ativar o ambiente virtual</h4>
-            <pre><code>source .venv/bin/activate</code></pre>
-
-            <h4>Instalar pacotes</h4>
-            <pre><code>uv pip install nome_do_pacote</code></pre>
-
-            <h4>Instalar pacotes de um requirements.txt</h4>
-            <pre><code>uv pip install -r requirements.txt</code></pre>
-
-            <h3>Comandos Básicos Detalhados</h3>
-            <p>Para entender melhor como usar o UV, veja a descrição detalhada de cada comando básico:</p>
+            <p>Aqui estão os comandos básicos do UV para gerenciamento de projetos Python:</p>
 
             <h4>Criar um ambiente virtual</h4>
             <pre><code>uv venv --python 3.12</code></pre>
-            <p>Este comando cria um ambiente virtual isolado para o seu projeto Python usando o uv. <code>venv</code> é o subcomando do uv para ambientes virtuais, e <code>--python 3.12</code> especifica a versão do Python 3.12 para o ambiente.</p>
+            <p>Cria um ambiente virtual isolado para o projeto Python, utilizando o UV. <code>venv</code> é o subcomando para ambientes virtuais, e <code>--python 3.12</code> especifica a versão do Python 3.12.</p>
 
             <h4>Ativar o ambiente virtual</h4>
             <pre><code>source .venv/bin/activate</code></pre>
-            <p>Este comando ativa o ambiente virtual criado. Ao ativá-lo, o shell usa as versões Python e pip do ambiente virtual, isolando as dependências do projeto.</p>
+            <p>Ativa o ambiente virtual criado, permitindo que o shell utilize as versões Python e pip do ambiente virtual, isolando as dependências do projeto.</p>
+
+            <h4>Instalar pacotes</h4>
+            <pre><code>uv pip install nome_do_pacote</code></pre>
+            <p>Instala um pacote específico no ambiente virtual.</p>
+
+            <h4>Instalar pacotes de um requirements.txt</h4>
+            <pre><code>uv pip install -r requirements.txt</code></pre>
+            <p>Instala pacotes listados em um arquivo <code>requirements.txt</code>.</p>
 
             <h4>Inicializar um projeto UV</h4>
             <pre><code>uv init</code></pre>
-            <p>Este comando inicializa um novo projeto Python no diretório atual, criando um arquivo <code>pyproject.toml</code>, que é usado pelo uv para gerenciar as dependências do projeto.</p>
+            <p>Inicializa um novo projeto Python no diretório atual, criando um arquivo <code>pyproject.toml</code> para gerenciar as dependências.</p>
 
             <h4>Adicionar dependências</h4>
             <pre><code>uv add <dependencies></code></pre>
-            <p>Este comando adiciona as dependências especificadas ao seu projeto. Por exemplo:</p>
+            <p>Adiciona dependências ao projeto. Exemplos:</p>
             <pre><code>uv add crewai</code></pre>
             <p>Adiciona a biblioteca <code>crewai</code> como dependência.</p>
             <pre><code>uv add crewai[tools]</code></pre>
-            <p>Adiciona <code>crewai</code> e suas dependências extras de <code>tools</code>, incluindo funcionalidades adicionais.</p>
+            <p>Adiciona <code>crewai</code> e suas dependências extras de <code>tools</code>.</p>
 
             <h3>Vantagens do UV</h3>
             <ul>

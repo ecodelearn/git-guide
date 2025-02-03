@@ -5,6 +5,19 @@
     box-sizing: border-box;
 }
 
+/* Styles for chunks output container */
+#chunks-output-container {
+    max-height: 800px;
+    overflow: auto;
+    position: relative;
+}
+
+#expand-collapse-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f4f8;
@@ -120,6 +133,17 @@ nav ul li a:hover {
 .nav-button.prev {
     margin-right: auto;
 }
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #ffc107;
+    color: #212529;
+}
+
 
 /* Conteúdo principal */
 main {

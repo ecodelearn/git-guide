@@ -32,16 +32,35 @@
             <pre><code>brew install uv</code></pre>
 
             <h3>Comandos Básicos</h3>
-            <p>Aqui estão alguns comandos básicos para começar a usar o UV:</p>
+            <p>Aqui estão os comandos básicos do UV para gerenciamento de projetos Python:</p>
 
             <h4>Criar um ambiente virtual</h4>
-            <pre><code>uv venv</code></pre>
+            <pre><code>uv venv --python 3.12</code></pre>
+            <p>Cria um ambiente virtual isolado para o projeto Python, utilizando o UV. <code>venv</code> é o subcomando para ambientes virtuais, e <code>--python 3.12</code> especifica a versão do Python 3.12.</p>
+
+            <h4>Ativar o ambiente virtual</h4>
+            <pre><code>source .venv/bin/activate</code></pre>
+            <p>Ativa o ambiente virtual criado, permitindo que o shell utilize as versões Python e pip do ambiente virtual, isolando as dependências do projeto.</p>
 
             <h4>Instalar pacotes</h4>
             <pre><code>uv pip install nome_do_pacote</code></pre>
+            <p>Instala um pacote específico no ambiente virtual.</p>
 
             <h4>Instalar pacotes de um requirements.txt</h4>
             <pre><code>uv pip install -r requirements.txt</code></pre>
+            <p>Instala pacotes listados em um arquivo <code>requirements.txt</code>.</p>
+
+            <h4>Inicializar um projeto UV</h4>
+            <pre><code>uv init</code></pre>
+            <p>Inicializa um novo projeto Python no diretório atual, criando um arquivo <code>pyproject.toml</code> para gerenciar as dependências.</p>
+
+            <h4>Adicionar dependências</h4>
+            <pre><code>uv add <dependencies></code></pre>
+            <p>Adiciona dependências ao projeto. Exemplos:</p>
+            <pre><code>uv add crewai</code></pre>
+            <p>Adiciona a biblioteca <code>crewai</code> como dependência.</p>
+            <pre><code>uv add crewai[tools]</code></pre>
+            <p>Adiciona <code>crewai</code> e suas dependências extras de <code>tools</code>.</p>
 
             <h3>Vantagens do UV</h3>
             <ul>
@@ -61,6 +80,10 @@
 
             <h3>Migração do Pip para UV</h3>
             <p>A migração do pip para o UV é simples, pois o UV mantém compatibilidade com os comandos do pip. Você pode continuar usando seus arquivos requirements.txt existentes e simplesmente substituir <code>pip</code> por <code>uv pip</code> nos seus comandos.</p>
+            <h3>Migração do Pip para UV</h3>
+            <p>A migração do pip para o UV é simples, pois o UV mantém compatibilidade com os comandos do pip. Você pode continuar usando seus arquivos requirements.txt existentes e simplesmente substituir <code>pip</code> por <code>uv pip</code> nos seus comandos.</p>
+            <h3>Aprenda Mais</h3>
+            <p>Para quem deseja aprender mais sobre o UV, consulte a documentação oficial: <a href="https://docs.astral.sh/uv/guides/">https://docs.astral.sh/uv/guides/</a></p>
         </section>
 
         <div class="nav-buttons">

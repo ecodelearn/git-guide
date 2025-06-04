@@ -1,12 +1,10 @@
 /**
  * Divide o texto em chunks de tamanho variável, preservando a divisão por palavras.
  * @param {string} text - O texto a ser dividido.
- * @param {number} chunkSize - Tamanho máximo de cada chunk em palavras.
+ * @param {number} chunkSize - Tamanho máximo de cada chunk em caracteres.
  * @returns {string[]} Array com os chunks resultantes.
  */
 function chunkText(text, chunkSize) {
-    // Converter chunkSize de palavras para caracteres
-    chunkSize = chunkSize * 4; // Estimativa média de 6 caracteres por palavra
 
     // Dividir o texto em palavras
     const words = text.split(/\s+/);
@@ -85,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (chunkSize < 3000 || chunkSize > 8000) {
-                outputDiv.innerHTML = '<p style="color: #e74c3c;">O tamanho do chunk deve estar entre 3.000 e 8.000 palavras.</p>';
+                outputDiv.innerHTML = '<p style="color: #e74c3c;">O tamanho do chunk deve estar entre 3.000 e 8.000 caracteres.</p>';
                 return;
             }
             

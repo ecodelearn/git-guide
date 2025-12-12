@@ -28,46 +28,68 @@
             <p>Existem várias maneiras de instalar o UV:</p>
 
             <h4>1. Usando Curl (Linux/macOS)</h4>
-            <pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
+            <div class="command">
+                <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code>
+            </div>
 
             <h4>2. Usando Pip</h4>
-            <pre><code>pip install uv</code></pre>
+            <div class="command">
+                <code>pip install uv</code>
+            </div>
 
             <h4>3. Usando Homebrew (macOS)</h4>
-            <pre><code>brew install uv</code></pre>
+            <div class="command">
+                <code>brew install uv</code>
+            </div>
 
             <h3>Comandos Básicos</h3>
             <p>Aqui estão os comandos básicos do UV para gerenciamento de projetos Python:</p>
 
             <h4>Criar um ambiente virtual</h4>
-            <pre><code>uv venv --python 3.12</code></pre>
+            <div class="command">
+                <code>uv venv --python 3.12</code>
+            </div>
             <p>Cria um ambiente virtual isolado para o projeto Python, utilizando o UV. <code>venv</code> é o subcomando
                 para ambientes virtuais, e <code>--python 3.12</code> especifica a versão do Python 3.12.</p>
 
             <h4>Ativar o ambiente virtual</h4>
-            <pre><code>source .venv/bin/activate</code></pre>
+            <div class="command">
+                <code>source .venv/bin/activate</code>
+            </div>
             <p>Ativa o ambiente virtual criado, permitindo que o shell utilize as versões Python e pip do ambiente
                 virtual, isolando as dependências do projeto.</p>
 
             <h4>Instalar pacotes</h4>
-            <pre><code>uv pip install nome_do_pacote</code></pre>
+            <div class="command">
+                <code>uv pip install nome_do_pacote</code>
+            </div>
             <p>Instala um pacote específico no ambiente virtual.</p>
 
             <h4>Instalar pacotes de um requirements.txt</h4>
-            <pre><code>uv pip install -r requirements.txt</code></pre>
+            <div class="command">
+                <code>uv pip install -r requirements.txt</code>
+            </div>
             <p>Instala pacotes listados em um arquivo <code>requirements.txt</code>.</p>
 
             <h4>Inicializar um projeto UV</h4>
-            <pre><code>uv init</code></pre>
+            <div class="command">
+                <code>uv init</code>
+            </div>
             <p>Inicializa um novo projeto Python no diretório atual, criando um arquivo <code>pyproject.toml</code> para
                 gerenciar as dependências.</p>
 
             <h4>Adicionar dependências</h4>
-            <pre><code>uv add <dependencies></code></pre>
+            <div class="command">
+                <code>uv add <dependencies></code>
+            </div>
             <p>Adiciona dependências ao projeto. Exemplos:</p>
-            <pre><code>uv add crewai</code></pre>
+            <div class="command">
+                <code>uv add crewai</code>
+            </div>
             <p>Adiciona a biblioteca <code>crewai</code> como dependência.</p>
-            <pre><code>uv add crewai[tools]</code></pre>
+            <div class="command">
+                <code>uv add crewai[tools]</code>
+            </div>
             <p>Adiciona <code>crewai</code> e suas dependências extras de <code>tools</code>.</p>
 
             <h3>Vantagens do UV</h3>

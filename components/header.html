@@ -1,30 +1,38 @@
-<!-- Header comum para todas as páginas -->
+<!-- Header com container e estrutura mobile-first -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia Interativo de Git e GitHub</title>
+<!-- Fonte Inter e Fira Code do Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 
 <header>
-    <h1>Guia Interativo LinuxGO</h1>
-    <p>Aprenda a instalar, configurar e usar o Git e o GitHub e outras dicas para seus projetos Python!</p>
-</header>
+    <div class="container">
+        <a href="../index.html" class="logo">Git Guide</a>
+        
+        <button class="menu-toggle" aria-label="Abrir menu">
+            ☰
+        </button>
 
-<nav>
-    <ul>
-        <li><a href="../index.html">Início</a></li>
-        <li class="dropdown">
-            <a href="#">Git Guide</a>
-            <div class="dropdown-content">
-                <a href="../instalacao.html">Instalação do Git</a>
-                <a href="../configuracao.html">Configuração do Git</a>
-                <a href="../github.html">Criando uma conta no GitHub</a>
-                <a href="../comandos.html">Comandos Básicos</a>
-            </div>
-        </li>
-        <li><a href="../python_iniciantes.html">Material para Iniciantes em Python</a></li>
-        <li><a href="../uv.html">Instalando UV</a></li>
-        <li><a href="../mentor.html">Meu Mentor</a></li>
-        <li><a href="../chunker.html">Text Chunker</a></li>
-        <li><a href="../doacao.html">Apoie o Projeto</a></li>
-    </ul>
-</nav>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li class="dropdown">
+                    <a href="#" style="cursor: default;">Git Guide ▾</a>
+                    <div class="dropdown-content">
+                        <a href="../instalacao.html">Instalação</a>
+                        <a href="../configuracao.html">Configuração</a>
+                        <a href="../github.html">GitHub</a>
+                        <a href="../comandos.html">Comandos</a>
+                    </div>
+                </li>
+                <li><a href="../python_iniciantes.html">Python Iniciantes</a></li>
+                <li><a href="../uv.html">UV</a></li>
+                <li><a href="../chunker.html">Chunker</a></li>
+                <li><a href="../mentor.html">Mentor</a></li>
+                <li><a href="../doacao.html" style="color: var(--color-accent);">Apoiar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

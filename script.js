@@ -21,40 +21,46 @@ function copyToClipboard(text, button) {
 const homebrewCommand = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"';
 
 function initializeMobileMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
+    // Event delegation for Menu Toggle
+    document.addEventListener('click', (e) => {
+        const menuToggle = e.target.closest('.menu-toggle');
+        const nav = document.querySelector('nav');
 
-    if (menuToggle && nav) {
-        // Toggle menu
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Previne fechar ao clicar no botão
+        // Toggle Menu
+        if (menuToggle && nav) {
+            e.stopPropagation();
             nav.classList.toggle('active');
             const isExpanded = nav.classList.contains('active');
             menuToggle.setAttribute('aria-expanded', isExpanded);
             menuToggle.textContent = isExpanded ? '✕' : '☰';
-        });
+            return;
+        }
 
-        // Fechar ao clicar fora
-        document.addEventListener('click', (e) => {
-            if (nav.classList.contains('active') && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
+        // Close when clicking outside
+        if (nav && nav.classList.contains('active')) {
+            if (!nav.contains(e.target) && (!menuToggle || !menuToggle.contains(e.target))) {
                 nav.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.textContent = '☰';
+                // Find toggle to reset icon, if possible/needed, but it might be outside scope. 
+                // We'll trust the toggle state update on next click or do a query.
+                const toggleBtn = document.querySelector('.menu-toggle');
+                if (toggleBtn) {
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    toggleBtn.textContent = '☰';
+                }
             }
-        });
-    }
+        }
+    });
 
-    // Dropdown Mobile Logic
-    const dropdowns = document.querySelectorAll('.dropdown > a');
-    dropdowns.forEach(dropdownLink => {
-        dropdownLink.addEventListener('click', (e) => {
-            // Apenas para mobile/tablet onde o hover não existe ou queremos click
-            if (window.innerWidth < 768) {
+    // Event delegation for Dropdowns (Mobile)
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth < 768) {
+            const dropdownLink = e.target.closest('.dropdown > a');
+            if (dropdownLink) {
                 e.preventDefault();
                 const parent = dropdownLink.parentElement;
                 parent.classList.toggle('active');
             }
-        });
+        }
     });
 }
 
@@ -92,22 +98,17 @@ function initializeCopyButtons() {
 // Inicializar tudo
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Inicializar listeners globais (delegation) imediatamente
+    initializeMobileMenu();
+
+    // Listener para botões de copiar (ainda precisa esperar o DOM ou ser chamado via MutationObserver, mas por agora manteremos assim)
     initializeCopyButtons();
 
-    // Escutar evento do loadHeader.js
+    // Evento headerLoaded pode ser usado para outras coisas se necessário, mas o menu agora é independente
     document.addEventListener('headerLoaded', () => {
-        console.log('Header carregado (evento), inicializando menu...');
-        initializeMobileMenu();
+        console.log('Header carregado (evento).');
+        // Re-check copy buttons possibly? No, header doesn't have copy buttons.
     });
-
-    // Fallback: se o evento não disparar ou já tiver passado (ou se estivermos numa página sem header dinâmico)
-    setTimeout(() => {
-        const nav = document.querySelector('nav');
-        // Só inicializa se achar o nav e ainda não tiver sido inicializado (poderíamos adicionar flag, mas o DOM check é ok)
-        if (nav && !nav.classList.contains('initialized')) {
-            initializeMobileMenu();
-        }
-    }, 1000);
 
     console.log('Script carregado e inicializado.');
 });

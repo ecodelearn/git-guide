@@ -450,6 +450,13 @@ footer {
         display: none;
     }
 
+    nav.logo-img {
+        height: 40px;
+        /* Small and subtle to maintain harmony */
+        width: auto;
+        transition: transform 0.2s;
+    }
+
     nav {
         display: block;
         position: static;

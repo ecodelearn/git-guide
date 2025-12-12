@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,28 @@
     <link rel="stylesheet" href="styles.css">
     <script src="components/loadHeader.js"></script>
 </head>
+
 <body>
-    <main>
+    <main class="container">
         <section id="chunker-section">
             <h2>Text Chunker</h2>
             <p>Divida seu texto em partes de 3.000 a 8.000 caracteres, mantendo a integridade das palavras.</p>
-            
+
             <form id="chunker-form">
                 <div style="margin-bottom: 1.5rem;">
-                    <label for="input-text" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Insira o texto:</label>
-                    <textarea id="input-text" rows="8" placeholder="Cole seu texto aqui" 
+                    <label for="input-text" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Insira o
+                        texto:</label>
+                    <textarea id="input-text" rows="8" placeholder="Cole seu texto aqui"
                         style="width: 100%; padding: 0.5rem; border: 1px solid #e0e0e0; border-radius: 4px; resize: vertical;"></textarea>
                 </div>
-                
+
                 <div style="margin-bottom: 1.5rem;">
-                    <label for="chunk-size" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Tamanho do Chunk:</label>
-                    <input type="number" id="chunk-size" value="3000" min="3000" max="8000" 
+                    <label for="chunk-size" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Tamanho do
+                        Chunk:</label>
+                    <input type="number" id="chunk-size" value="3000" min="3000" max="8000"
                         style="padding: 0.5rem; border: 1px solid #e0e0e0; border-radius: 4px; width: 150px;">
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Dividir</button>
                 <button id="download-btn" class="btn btn-secondary">Download</button>
             </form>
@@ -42,4 +46,5 @@
     <script type="module" src="textChunker.js"></script>
     <script type="module" src="script.js"></script>
 </body>
+
 </html>

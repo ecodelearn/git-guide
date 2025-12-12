@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <!-- O header será carregado dinamicamente -->
     <script src="./components/loadHeader.js"></script>
     <meta charset="UTF-8">
 </head>
+
 <body>
-    <main>
+    <main class="container">
         <section>
             <h2>Criando uma conta no GitHub</h2>
-            <p>O GitHub é uma plataforma de hospedagem de código-fonte que usa o Git para controle de versão. Siga os passos abaixo para criar sua conta:</p>
+            <p>O GitHub é uma plataforma de hospedagem de código-fonte que usa o Git para controle de versão. Siga os
+                passos abaixo para criar sua conta:</p>
 
             <ol>
                 <li>Acesse o site do GitHub: <a href="https://github.com" target="_blank">https://github.com</a></li>
@@ -28,26 +31,33 @@
             </ol>
 
             <h3>Configurando seu perfil do GitHub</h3>
-            
+
             <p>Agora pode configurar o seu perfil:</p>
 
             <ol>
-                <li>Adicione uma foto de perfil clicando no ícone de avatar no canto superior direito e selecionando "Your profile" (Seu perfil).</li>
-                <li>Clique em "Edit profile" (Editar perfil) para adicionar informações como sua bio, localização, e site pessoal.</li>
-                <li>Considere criar um README.md personalizado para seu perfil, que aparecerá na sua página principal do GitHub.</li>
+                <li>Adicione uma foto de perfil clicando no ícone de avatar no canto superior direito e selecionando
+                    "Your profile" (Seu perfil).</li>
+                <li>Clique em "Edit profile" (Editar perfil) para adicionar informações como sua bio, localização, e
+                    site pessoal.</li>
+                <li>Considere criar um README.md personalizado para seu perfil, que aparecerá na sua página principal do
+                    GitHub.</li>
             </ol>
             <blockquote>
                 <br>
-                <p>Após configurar seu perfil, não se esqueça de seguir o meu repositório! Você pode me seguir no GitHub através do meu perfil: <a href="https://github.com/ecodelearn" target="_blank">https://github.com/ecodelearn</a>.</p>
+                <p>Após configurar seu perfil, não se esqueça de seguir o meu repositório! Você pode me seguir no GitHub
+                    através do meu perfil: <a href="https://github.com/ecodelearn"
+                        target="_blank">https://github.com/ecodelearn</a>.</p>
                 <br>
             </blockquote>
 
             <h3>Instalando e Configurando o GitHub CLI</h3>
-            <p>O GitHub CLI (Command Line Interface) é uma ferramenta que permite interagir com o GitHub diretamente do terminal. Vamos instalar e configurar o GitHub CLI para conectar sua conta local ao GitHub:</p>
+            <p>O GitHub CLI (Command Line Interface) é uma ferramenta que permite interagir com o GitHub diretamente do
+                terminal. Vamos instalar e configurar o GitHub CLI para conectar sua conta local ao GitHub:</p>
 
             <h4>Instalação do GitHub CLI</h4>
             <ol>
-                <li>Acesse a página de download do GitHub CLI: <a href="https://cli.github.com/" target="_blank">https://cli.github.com/</a></li>
+                <li>Acesse a página de download do GitHub CLI: <a href="https://cli.github.com/"
+                        target="_blank">https://cli.github.com/</a></li>
                 <li>Siga as instruções de instalação para o seu sistema operacional:
                     <ul>
                         <li>Windows: Baixe o instalador e execute-o após a instalação reiniciar o sistema.</li>
@@ -57,7 +67,8 @@
                                 <button class="copy-btn" data-command="brew install gh">Copiar</button>
                             </div>
                         </li>
-                        <li>Linux: Use o gerenciador de pacotes da sua distribuição (instruções detalhadas na página de download)</li>
+                        <li>Linux: Use o gerenciador de pacotes da sua distribuição (instruções detalhadas na página de
+                            download)</li>
                     </ul>
                 </li>
             </ol>
@@ -94,14 +105,16 @@
             <p>Se você ver uma mensagem indicando que você está autenticado, a configuração foi bem-sucedida!</p>
 
             <h3>Criando um Repositório no GitHub e Clonando com GitHub CLI</h3>
-            <p>Agora que temos o GitHub CLI configurado, vamos criar um novo repositório chamado "primeiro-repositorio" e cloná-lo para o seu computador:</p>
+            <p>Agora que temos o GitHub CLI configurado, vamos criar um novo repositório chamado "primeiro-repositorio"
+                e cloná-lo para o seu computador:</p>
 
             <h4>Criando o Repositório</h4>
             <ol>
                 <li>No terminal, execute o seguinte comando para criar um novo repositório:
                     <div class="command">
                         <code>gh repo create primeiro-repositorio --public</code>
-                        <button class="copy-btn" data-command="gh repo create primeiro-repositorio --public">Copiar</button>
+                        <button class="copy-btn"
+                            data-command="gh repo create primeiro-repositorio --public">Copiar</button>
                     </div>
                 </li>
                 <li>O GitHub CLI irá criar o repositório e mostrar a URL do mesmo.</li>
@@ -112,15 +125,18 @@
                 <li>Após criar o repositório, você pode cloná-lo diretamente usando o comando:
                     <div class="command">
                         <code>gh repo clone seu-usuario/primeiro-repositorio</code>
-                        <button class="copy-btn" data-command="gh repo clone seu-usuario/primeiro-repositorio">Copiar</button>
+                        <button class="copy-btn"
+                            data-command="gh repo clone seu-usuario/primeiro-repositorio">Copiar</button>
                     </div>
                     <p>Substitua "seu-usuario" pelo seu nome de usuário do GitHub.</p>
                 </li>
-                <li>O GitHub CLI irá clonar o repositório para uma nova pasta chamada "primeiro-repositorio" no diretório atual.</li>
+                <li>O GitHub CLI irá clonar o repositório para uma nova pasta chamada "primeiro-repositorio" no
+                    diretório atual.</li>
             </ol>
 
             <h4>Trabalhando com o Repositório</h4>
-            <p>Agora que você tem o repositório clonado localmente, você pode começar a adicionar arquivos, fazer commits e push para o GitHub:</p>
+            <p>Agora que você tem o repositório clonado localmente, você pode começar a adicionar arquivos, fazer
+                commits e push para o GitHub:</p>
             <ol>
                 <li>Entre na pasta do repositório:
                     <div class="command">
@@ -131,7 +147,8 @@
                 <li>Crie um arquivo README.md:
                     <div class="command">
                         <code>echo "# Meu Primeiro Repositório" > README.md</code>
-                        <button class="copy-btn" data-command='echo \"# Meu Primeiro Repositório\" > README.md'>Copiar</button>
+                        <button class="copy-btn"
+                            data-command='echo \"# Meu Primeiro Repositório\" > README.md'>Copiar</button>
                     </div>
                 </li>
                 <li>Adicione o arquivo ao Git:
@@ -143,7 +160,7 @@
                 <li>Faça um commit:
                     <div class="command">
                         <code>git commit -m "Adiciona README"</code>
-                        <button class="copy-btn" data-command="git commit -m \"Adiciona README\"">Copiar</button>
+                        <button class="copy-btn" data-command="git commit -m \" Adiciona README\"">Copiar</button>
                     </div>
                 </li>
                 <li>Envie as mudanças para o GitHub:
@@ -154,7 +171,9 @@
                 </li>
             </ol>
 
-            <p>Parabéns! Você criou seu primeiro repositório no GitHub, clonou-o localmente e fez seu primeiro commit e push. Agora você está pronto para começar a usar o GitHub com seus projetos Python através da linha de comando!</p>
+            <p>Parabéns! Você criou seu primeiro repositório no GitHub, clonou-o localmente e fez seu primeiro commit e
+                push. Agora você está pronto para começar a usar o GitHub com seus projetos Python através da linha de
+                comando!</p>
         </section>
 
         <div class="nav-buttons">
@@ -176,4 +195,5 @@
 
     <script src="./script.js"></script>
 </body>
+
 </html>

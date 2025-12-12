@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <!-- O header será carregado dinamicamente -->
     <script src="./components/loadHeader.js"></script>
     <meta charset="UTF-8">
 </head>
+
 <body>
-    <main>
+    <main class="container">
         <section>
             <h2>Configuração Inicial do Git</h2>
             <p>Após instalar o Git, é importante configurá-lo com suas informações pessoais. Siga os passos abaixo:</p>
 
             <h3>Configurando seu nome de usuário</h3>
-            <p>Digite o seguinte comando no terminal ou prompt de comando, substituindo "Seu Nome" pelo seu nome real:</p>
+            <p>Digite o seguinte comando no terminal ou prompt de comando, substituindo "Seu Nome" pelo seu nome real:
+            </p>
             <div class="command">
                 <code>git config --global user.name "Seu Nome"</code>
                 <button onclick='copyToClipboard("git config --global user.name \"Seu Nome\"")'>Copiar</button>
@@ -22,7 +25,8 @@
             <p>Digite o seguinte comando, substituindo "seu.email@example.com" pelo seu e-mail real:</p>
             <div class="command">
                 <code>git config --global user.email "seu.email@example.com"</code>
-                <button onclick='copyToClipboard("git config --global user.email \"seu.email@example.com\"")'>Copiar</button>
+                <button
+                    onclick='copyToClipboard("git config --global user.email \"seu.email@example.com\"")'>Copiar</button>
             </div>
 
             <h3>Verificando suas configurações</h3>
@@ -35,7 +39,8 @@
             <p>Isso exibirá todas as configurações do Git, incluindo as que você acabou de definir.</p>
 
             <h3>Configurando o editor padrão</h3>
-            <p>Se desejar, você pode configurar o editor de texto padrão que o Git usará. Por exemplo, para configurar o Visual Studio Code como editor padrão, use:</p>
+            <p>Se desejar, você pode configurar o editor de texto padrão que o Git usará. Por exemplo, para configurar o
+                Visual Studio Code como editor padrão, use:</p>
             <div class="command">
                 <code>git config --global core.editor "code --wait"</code>
                 <button onclick='copyToClipboard("git config --global core.editor \"code --wait\"")'>Copiar</button>
@@ -63,4 +68,5 @@
 
     <script src="./script.js"></script>
 </body>
+
 </html>

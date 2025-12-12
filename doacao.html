@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <!-- O header será carregado dinamicamente -->
-        <script src="./components/loadHeader.js"></script>
-        <meta charset="UTF-8">
-    </head>
+
+<head>
+    <!-- O header será carregado dinamicamente -->
+    <script src="./components/loadHeader.js"></script>
+    <meta charset="UTF-8">
+</head>
+
 <body>
-    <main>
+    <main class="container">
         <section>
             <h2>Apoie o Projeto</h2>
-            <p>Se você achou este guia útil e gostaria de apoiar o desenvolvimento de mais projetos como este, considere fazer uma doação. Sua contribuição nos ajudará a manter e melhorar este recurso, além de criar novos conteúdos educacionais.</p>
+            <p>Se você achou este guia útil e gostaria de apoiar o desenvolvimento de mais projetos como este, considere
+                fazer uma doação. Sua contribuição nos ajudará a manter e melhorar este recurso, além de criar novos
+                conteúdos educacionais.</p>
 
             <h3>Opções de Doação:</h3><br>
             <div class="donation-options">
@@ -54,9 +58,10 @@
     <script>
         // Redirecionamento para o link do Stripe em uma nova aba
         var button = document.getElementById('stripe-donate');
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             window.open('https://donate.stripe.com/9AQ9AA6C35jAgN26oo', '_blank');
         });
     </script>
 </body>
+
 </html>

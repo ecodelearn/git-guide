@@ -1,53 +1,65 @@
-// Script para carregar o header em todas as páginas
+// Script para carregar o header em todas as páginas de forma robusta
 document.addEventListener('DOMContentLoaded', function () {
-    // Determinar se estamos em ambiente local ou web
     const isLocal = window.location.protocol === 'file:';
 
-    // Ajustar o caminho do header baseado no ambiente
+    // Determinar caminho do header
     const headerPath = isLocal ?
         window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/components/header.html' :
         '/components/header.html';
 
-    // Usar XMLHttpRequest que funciona com file://
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', headerPath, true);
+    fetch(headerPath)
+        .then(response => {
+            if (!response.ok) throw new Error('Erro ao carregar header');
+            return response.text();
+        })
+        .then(html => {
+            // Usar DOMParser para manipular o HTML de segurança e facilidade
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200 || (isLocal && xhr.status === 0)) { // status 0 para file://
-                // Inserir o conteúdo do header no head e após a abertura do body
-                const headerContent = xhr.responseText;
-
-                try {
-                    // Extrair e ajustar os caminhos no conteúdo baseado no ambiente
-                    let adjustedContent = headerContent;
-                    if (isLocal) {
-                        // Remover '../' dos caminhos para ambiente local
-                        adjustedContent = headerContent.replace(/href="\.\.\//g, 'href="./');
-                    } else {
-                        // Manter os caminhos absolutos para ambiente web
-                        adjustedContent = headerContent.replace(/href="\.\.\//g, 'href="/');
+            // 1. Injetar Tags do HEAD (CSS, Fonts, Meta)
+            // Filtramos apenas o que não existe para evitar duplicatas, mas garantimos o CSS
+            const headElements = doc.querySelectorAll('link, meta, style');
+            headElements.forEach(el => {
+                // Ajustar caminhos (href)
+                if (el.hasAttribute('href')) {
+                    let href = el.getAttribute('href');
+                    if (href.startsWith('../')) {
+                        href = isLocal ? href.replace('../', './') : href.replace('../', '/');
+                        el.setAttribute('href', href);
                     }
-
-                    // Inserir meta tags e links no head
-                    const headContent = adjustedContent.match(/<meta[\s\S]*?<link[^>]*>/)[0];
-                    document.head.innerHTML = headContent + document.head.innerHTML;
-
-                    // Inserir header e nav no início do body
-                    const headerAndNav = adjustedContent.match(/<header[\s\S]*?<\/header>/)[0];
-                    document.body.insertAdjacentHTML('afterbegin', headerAndNav);
-                } catch (error) {
-                    console.error('Erro ao processar o conteúdo do header:', error);
                 }
-            } else {
-                console.error('Erro ao carregar o header:', xhr.status);
+                document.head.appendChild(el);
+            });
+
+            // 2. Injetar o Header e Nav no Body
+            const header = doc.querySelector('header');
+            if (header) {
+                // Ajustar links dentro do header
+                const links = header.querySelectorAll('a, img');
+                links.forEach(el => {
+                    if (el.hasAttribute('href')) {
+                        let href = el.getAttribute('href');
+                        if (href.startsWith('../')) {
+                            href = isLocal ? href.replace('../', './') : href.replace('../', '/');
+                            el.setAttribute('href', href);
+                        }
+                    }
+                    if (el.hasAttribute('src')) {
+                        let src = el.getAttribute('src');
+                        if (src.startsWith('../')) {
+                            src = isLocal ? src.replace('../', './') : src.replace('../', '/');
+                            el.setAttribute('src', src);
+                        }
+                    }
+                });
+
+                document.body.insertAdjacentElement('afterbegin', header);
+
+                // Disparar evento customizado para avisar que o header foi carregado
+                // Isso ajuda o script.js a saber quando inicializar os listeners
+                document.dispatchEvent(new Event('headerLoaded'));
             }
-        }
-    };
-
-    xhr.onerror = function () {
-        console.error('Erro de rede ao tentar carregar o header');
-    };
-
-    xhr.send();
+        })
+        .catch(err => console.error('Erro no loadHeader:', err));
 });

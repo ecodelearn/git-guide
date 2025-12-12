@@ -89,25 +89,26 @@ function initializeCopyButtons() {
 
 
 // Inicializar tudo
+// Inicializar tudo
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Aguardar o carregamento do header (que é assíncrono)
-    const checkHeader = setInterval(() => {
-        const nav = document.querySelector('nav');
-        if (nav) {
-            clearInterval(checkHeader);
-            initializeMobileMenu();
-        }
-    }, 100);
-
-    // Timeout de segurança
-    setTimeout(() => {
-        clearInterval(checkHeader);
-        // Tenta inicializar mesmo assim
-        initializeMobileMenu();
-    }, 3000);
 
     initializeCopyButtons();
 
+    // Escutar evento do loadHeader.js
+    document.addEventListener('headerLoaded', () => {
+        console.log('Header carregado (evento), inicializando menu...');
+        initializeMobileMenu();
+    });
+
+    // Fallback: se o evento não disparar ou já tiver passado (ou se estivermos numa página sem header dinâmico)
+    setTimeout(() => {
+        const nav = document.querySelector('nav');
+        // Só inicializa se achar o nav e ainda não tiver sido inicializado (poderíamos adicionar flag, mas o DOM check é ok)
+        if (nav && !nav.classList.contains('initialized')) {
+            initializeMobileMenu();
+        }
+    }, 1000);
+
     console.log('Script carregado e inicializado.');
 });
+```

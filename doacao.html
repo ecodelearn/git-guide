@@ -17,23 +17,19 @@
                 fazer uma doação. Sua contribuição nos ajudará a manter e melhorar este recurso, além de criar novos
                 conteúdos educacionais.</p>
 
-            <h3>Opções de Doação:</h3><br>
-            <div class="donation-options">
+            <h3>Faça uma doação:</h3>
+            <div class="donation-options" style="justify-content: center;">
                 <div class="donation-option">
                     <h4>Mercado Pago</h4>
-                    <p>Você pode fazer uma doação através do Mercado Pago selecionando um dos valores abaixo:</p>
+                    <p>Escolha um valor para doar:</p>
                     <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
                         <a href="https://mpago.la/1HR7a5N" target="_blank" class="botao-doacao">R$ 10</a>
                         <a href="https://mpago.la/1budZvE" target="_blank" class="botao-doacao">R$ 20</a>
                         <a href="https://mpago.la/2Ag3vfV" target="_blank" class="botao-doacao">R$ 50</a>
                     </div>
                 </div>
-                <div class="donation-option">
-                    <h4>Stripe</h4>
-                    <p>Para doações internacionais, você pode usar o Stripe:</p>
-                    <button id="stripe-donate">Doar via Stripe</button>
-                </div>
             </div>
+
 
             <h3>Por que doar?</h3>
             <ul>
@@ -56,14 +52,7 @@
     </footer>
 
     <script src="./script.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        // Redirecionamento para o link do Stripe em uma nova aba
-        var button = document.getElementById('stripe-donate');
-        button.addEventListener('click', function () {
-            window.open('https://donate.stripe.com/9AQ9AA6C35jAgN26oo', '_blank');
-        });
-    </script>
+
 </body>
 
 </html>

@@ -129,19 +129,11 @@ header .container {
     align-items: center;
     padding-top: var(--spacing-sm);
     padding-bottom: var(--spacing-sm);
+    position: relative;
+    /* Context for menu toggle */
 }
 
-.logo {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--color-text-inverted);
-    text-decoration: none;
-}
-
-.logo:hover {
-    color: var(--color-primary);
-    text-decoration: none;
-}
+/* ... logo ... */
 
 /* Mobile Menu Button */
 .menu-toggle {
@@ -152,6 +144,9 @@ header .container {
     font-size: 1.5rem;
     cursor: pointer;
     padding: var(--spacing-xs);
+    position: relative;
+    z-index: 1002;
+    /* Above nav */
 }
 
 /* Mobile Navigation */
@@ -163,9 +158,11 @@ nav {
     background-color: var(--color-bg-header);
     padding: var(--spacing-sm);
     display: none;
-    /* Hidden by default */
     flex-direction: column;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1001;
+    /* Above other content */
+    box-shadow: var(--shadow-lg);
 }
 
 nav.active {
@@ -380,6 +377,14 @@ footer {
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     color: #fff;
     text-decoration: none;
+}
+
+.texto-doacao {
+    text-align: center;
+    margin: var(--spacing-sm) auto;
+    color: var(--color-text-secondary);
+    display: block;
+    max-width: 600px;
 }
 
 /* Utilities */

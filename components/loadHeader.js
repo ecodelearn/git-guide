@@ -18,18 +18,32 @@ document.addEventListener('DOMContentLoaded', function () {
             const doc = parser.parseFromString(html, 'text/html');
 
             // 1. Injetar Tags do HEAD (CSS, Fonts, Meta)
-            // Filtramos apenas o que não existe para evitar duplicatas, mas garantimos o CSS
             const headElements = doc.querySelectorAll('link, meta, style');
             headElements.forEach(el => {
-                // Ajustar caminhos (href)
-                if (el.hasAttribute('href')) {
-                    let href = el.getAttribute('href');
-                    if (href.startsWith('../')) {
-                        href = isLocal ? href.replace('../', './') : href.replace('../', '/');
-                        el.setAttribute('href', href);
-                    }
+                let shouldInject = true;
+
+                // Evitar duplicar CSS principal e Viewport
+                if (el.tagName === 'LINK' && el.getAttribute('href') && el.getAttribute('href').includes('styles.css')) {
+                    if (document.querySelector('link[href*="styles.css"]')) shouldInject = false;
                 }
-                document.head.appendChild(el);
+                if (el.tagName === 'META' && el.getAttribute('name') === 'viewport') {
+                    if (document.querySelector('meta[name="viewport"]')) shouldInject = false;
+                }
+                if (el.tagName === 'META' && el.getAttribute('charset')) {
+                    if (document.querySelector('meta[charset]')) shouldInject = false;
+                }
+
+                if (shouldInject) {
+                    // Ajustar caminhos (href)
+                    if (el.hasAttribute('href')) {
+                        let href = el.getAttribute('href');
+                        if (href.startsWith('../')) {
+                            href = isLocal ? href.replace('../', './') : href.replace('../', '/');
+                            el.setAttribute('href', href);
+                        }
+                    }
+                    document.head.appendChild(el);
+                }
             });
 
             // 2. Injetar o Header e Nav no Body
